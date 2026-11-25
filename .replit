@@ -1,0 +1,16 @@
+modules = ["nodejs-20"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+[workflows]
+runButton = "Serve Site"
+
+[[workflows.workflow]]
+name = "Serve Site"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx serve -l tcp://0.0.0.0:3000 ."
+waitForPort = 3000
